@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lena Photo Processor</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section id="loginCard" class="card">
+        <h1>Lena Photo Processor</h1>
+        <p class="muted">Enter password to access the processing tool.</p>
+        <form id="loginForm" autocomplete="off">
+          <label for="passwordInput">Password</label>
+          <input id="passwordInput" name="password" type="password" required />
+          <button type="submit">Unlock</button>
+        </form>
+        <p id="loginError" class="error" role="alert" aria-live="polite"></p>
+      </section>
+
+      <section id="appCard" class="card hidden">
+        <h1>Lena Photo Processor</h1>
+        <p class="muted">Upload photos, add one strain name per line, then download the processed images as a ZIP.</p>
+
+        <div class="preset-note">
+          <strong>Preset assets:</strong>
+          <span>Company logo + watermark are loaded from this site or from saved presets below.</span>
+        </div>
+
+        <div class="preset-grid">
+          <div>
+            <label for="presetLogoInput">Set/Replace Saved Logo</label>
+            <input id="presetLogoInput" type="file" accept="image/*" />
+          </div>
+          <div>
+            <label for="presetWatermarkInput">Set/Replace Saved Watermark</label>
+            <input id="presetWatermarkInput" type="file" accept="image/*" />
+          </div>
+        </div>
+        <button id="savePresetsButton" type="button">Save Preset Assets</button>
+
+        <form id="processorForm" autocomplete="off">
+          <label for="photosInput">Upload Photos</label>
+          <input id="photosInput" name="photos" type="file" accept="image/*" multiple required />
+
+          <label for="namesInput">Strain Names (one per line, same order as files)</label>
+          <textarea
+            id="namesInput"
+            name="names"
+            rows="8"
+            placeholder="Blue Dream&#10;Gelato&#10;Sour Diesel"
+            required
+          ></textarea>
+
+          <button id="processButton" type="submit">Process & Download ZIP</button>
+        </form>
+
+        <p id="statusText" class="status" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

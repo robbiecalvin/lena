@@ -1,0 +1,131 @@
+@font-face {
+  font-family: "Montserrat ExtraBold";
+  src: url("./assets/fonts/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #f3f6f2;
+  --card: #ffffff;
+  --text: #172016;
+  --muted: #53624f;
+  --accent: #355f34;
+  --accent-hover: #2b4f2a;
+  --border: #d7dfd5;
+  --error: #a02222;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Montserrat ExtraBold", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top right, #dce7d9 0%, var(--bg) 45%, #eef4ed 100%);
+  color: var(--text);
+}
+
+.page {
+  width: min(760px, 94vw);
+  margin: 28px auto;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(23, 32, 22, 0.08);
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  letter-spacing: 0.01em;
+}
+
+.muted {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 500;
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+input,
+textarea,
+button {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 12px;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+button {
+  margin-top: 16px;
+  border: 0;
+  color: #fff;
+  background: var(--accent);
+  font-family: "Montserrat ExtraBold", "Segoe UI", sans-serif;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+button:disabled {
+  background: #839580;
+  cursor: not-allowed;
+}
+
+.preset-note {
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #edf5eb;
+  border: 1px solid #d6e7d1;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.preset-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.status,
+.error {
+  margin-top: 14px;
+  min-height: 1.2em;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 600;
+}
+
+.error {
+  color: var(--error);
+}
+
+.status {
+  color: #1d3f1d;
+}
